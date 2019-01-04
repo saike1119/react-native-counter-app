@@ -4,4 +4,5 @@ export default {
     minus: '#FF6B6B',
     white: '#F7FFF7',
     black: '#08171A',
+    caution: '#ff0000'
 }

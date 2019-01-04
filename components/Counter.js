@@ -4,42 +4,30 @@ import styled from 'styled-components';
 import colors from '../utils/colors';
 
 class Counter extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            counter: 1,
-        }
-    }
-
-    plus = () => {
-        this.setState({
-            counter: this.state.counter + 1,
-        })
-    };
-
-    minus = () => {
-        // マイナスにならないように
-        if (this.state.counter > 0) {
-            this.setState({
-                counter: this.state.counter - 1,
-            })
-        }
-    };
-
     render() {
+        const {plus, minus, counter} = this.props;
         return (
             <Container>
                 <Title>Counter APP</Title>
-                <Count>{this.state.counter}</Count>
+                <Count>{counter}</Count>
                 <Buttons>
-                    <ButtonBoxPlus onPress={this.plus} underlayColor={colors.plus}>
+                    <ButtonBoxPlus onPress={plus} underlayColor={colors.plus}>
                         <ButtonText>+</ButtonText>
                     </ButtonBoxPlus>
-                    <ButtonBoxMinus onPress={this.minus} underlayColor={colors.minus}>
+                    <ButtonBoxMinus onPress={minus} underlayColor={colors.minus}>
                         <ButtonText>-</ButtonText>
                     </ButtonBoxMinus>
                 </Buttons>
+                <Caution>
+                    {(() => {
+                            if (counter === 0) {
+                                return <Text>マイナスにはできません！</Text>
+                            } else {
+                                return null;
+                            }
+                        }
+                    )()}
+                </Caution>
             </Container>
         );
     }
@@ -78,6 +66,12 @@ const Count = styled(Text)`
 const Title = styled(Text)`
   font-size: 30;
   text-align: center;
+`;
+const Caution = styled(Text)`
+  font-size: 20;
+  text-align: center;
+  color: ${colors.caution};
+  margin-top: 20;
 `;
 
 export default Counter;
