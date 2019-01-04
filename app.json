@@ -4,6 +4,7 @@
     "slug": "react-native-counter-app",
     "privacy": "public",
     "sdkVersion": "31.0.0",
+    // "sdkVersion": "32.0.0", androidは32出ないとビルドできない
     "platforms": [
       "ios",
       "android"
@@ -23,7 +24,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true˚
     }
   }
 }
