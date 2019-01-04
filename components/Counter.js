@@ -30,6 +30,7 @@ class Counter extends Component {
     render() {
         return (
             <Container>
+                <Title>Counter APP</Title>
                 <Count>{this.state.counter}</Count>
                 <Buttons>
                     <ButtonBoxPlus onPress={this.plus} underlayColor={colors.plus}>
@@ -72,6 +73,10 @@ const ButtonText = styled(Text)`
 `;
 const Count = styled(Text)`
   font-size: 50;
+  text-align: center;
+`;
+const Title = styled(Text)`
+  font-size: 30;
   text-align: center;
 `;
 
