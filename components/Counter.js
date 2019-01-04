@@ -19,9 +19,12 @@ class Counter extends Component {
     };
 
     minus = () => {
-        this.setState({
-            counter: this.state.counter - 1,
-        })
+        // マイナスにならないように
+        if (this.state.counter > 0) {
+            this.setState({
+                counter: this.state.counter - 1,
+            })
+        }
     };
 
     render() {
